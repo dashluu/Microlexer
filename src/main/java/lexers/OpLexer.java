@@ -1,4 +1,4 @@
-package lexer;
+package lexers;
 
 import operators.OpTable;
 import tokens.Token;

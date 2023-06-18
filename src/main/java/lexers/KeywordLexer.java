@@ -1,23 +1,23 @@
-package lexer;
+package lexers;
 
 import exceptions.SyntaxError;
+import keywords.KeywordTable;
 import tokens.Token;
 import tokens.TokenType;
-import types.TypeTable;
 
 import java.io.IOException;
 
-public class TypeLexer extends AlnumUnderscoreLexer {
-    private final TypeTable typeTable = TypeTable.getInstance();
+public class KeywordLexer extends AlnumUnderscoreLexer {
+    private final KeywordTable keywordTable = KeywordTable.getInstance();
 
-    public TypeLexer(CharReader charReader) {
+    public KeywordLexer(CharReader charReader) {
         super(charReader);
     }
 
     /**
-     * Reads a data type token.
+     * Reads a keyword containing only alphanumerics and underscores.
      *
-     * @return a token that stores a data type.
+     * @return a token that stores the keyword.
      * @throws IOException if the read operation causes an error.
      * @throws SyntaxError if there is a syntax error.
      */
@@ -25,15 +25,16 @@ public class TypeLexer extends AlnumUnderscoreLexer {
     public Token read() throws IOException, SyntaxError {
         // Use the super class to read an alphanumeric-underscore token
         Token tok = super.read();
+        TokenType keywordId;
         if (tok == null) {
             return null;
         }
-        if (typeTable.getType(tok.getValue()) == null) {
-            // If the type is not found, put the read token back
+        if ((keywordId = keywordTable.getId(tok.getValue())) == null) {
+            // If the keyword is not found, put the read token back
             charReader.putBack(tok.getValue());
             return null;
         }
-        tok.setType(TokenType.TYPE_ID);
+        tok.setType(keywordId);
         return tok;
     }
 }

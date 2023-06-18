@@ -1,4 +1,4 @@
-package lexer;
+package lexers;
 
 import exceptions.SyntaxError;
 import tokens.Token;

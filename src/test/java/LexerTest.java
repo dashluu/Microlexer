@@ -1,4 +1,4 @@
-import lexer.Lexer;
+import lexers.Lexer;
 import exceptions.SyntaxError;
 import tokens.Token;
 import tokens.TokenType;

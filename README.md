@@ -52,7 +52,7 @@ There are several phases in the compilation process:
 
 ## Lexer
 
-The code for lexer is in the package `lexer`. It includes:
+The code for lexer is in the package `lexers`. It includes:
 
 * **CharReader**: has an internal buffer which holds characters read from the input stream (usually a file).
 * **AlnumUnderscoreLexer**: reads alphanumeric and underscore characters to form a lexeme.
@@ -60,7 +60,7 @@ The code for lexer is in the package `lexer`. It includes:
 * **TypeLexer**: inherits from AlnumUnderscoreLexer and reads a data type lexeme using the TypeTable object.
 * **OpLexer**: reads an operator lexeme using the OperatorTable object.
 * **NumLexer**: reads a number(integer or floating-point) lexeme.
-* **Lexer**: uses one of the lexer components above to read a lexeme in a switch-case or if-else fashion.
+* **Lexer**: uses one of the component lexers above to read a lexeme in a switch-case or if-else fashion.
 
 ## Tables
 
