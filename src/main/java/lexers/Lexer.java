@@ -27,6 +27,15 @@ public class Lexer {
     }
 
     /**
+     * Gets the current line number.
+     *
+     * @return an integer as the current line number.
+     */
+    public int getCurrLine() {
+        return charReader.getCurrLine();
+    }
+
+    /**
      * Looks ahead to and removes the next token from the buffer.
      *
      * @return the next token in the buffer.
