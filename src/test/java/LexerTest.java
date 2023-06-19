@@ -78,7 +78,7 @@ class LexerTest {
         expected.add(new Token("-", TokenType.SUB));
         expected.add(new Token("67.0", TokenType.FLOAT_LITERAL));
         expected.add(new Token("+", TokenType.ADD));
-        expected.add(new Token("71e3", TokenType.FLOAT_LITERAL));
+        expected.add(new Token("71e3", TokenType.INT_LITERAL));
         expected.add(new Token("*", TokenType.MULT));
         expected.add(new Token("21", TokenType.INT_LITERAL));
         expected.add(new Token(")", TokenType.RPAREN));
