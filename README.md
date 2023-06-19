@@ -5,8 +5,9 @@
 I have always wanted to understand what happens behind the scene every time I type my code in C, Python, Java, and
 many other programming languages. The only way to do so is to build a small compiler(OK but maybe not from scratch :)).
 The fun of engineering is to construct things and see how far they can take you. That is exactly what this project is
-about. It reflects my journey in learning about compilers. Although my knowledge on the topic is still shallow, I will
-continue to update it, and any feedback will be much appreciated.
+about. It reflects my journey in learning about compilers. However, compilers are difficult to build, so I'll split it
+into a multipart project. This is the first part where I'll be constructing a simple lexer to extract tokens. If there
+is any way to improve this project, which I'm sure there is, any feedback will be appreciated.
 
 ## References
 
@@ -84,3 +85,34 @@ The code for lexer is in the package `lexers`. It includes:
 * There are two tables:
     * One maps strings as type IDs to objects that store type information.
     * One maps a data type to another data type if the first one can be cast to the second(explicitly or implicitly).
+
+## Grammar
+
+### Regex notations
+
+I borrowed the following regular expression notations
+from [Kotlin's grammar](https://kotlinlang.org/docs/reference/grammar.html).
+
+* `|`: alternative.
+* `*`: zero or more.
+* `+`: one or more.
+* `?`: zero or one.
+
+### Alphanumeric
+
+Grammatical rule for alphanumeric lexemes used in keywords, data types, and operators:
+
+```
+alnum_ -> ('_'|('a'-'z')|('A'-'Z'))('_'|('a'-'z')|('A'-'Z')|('0'-'9'))*
+```
+
+### Numeric expressions
+
+```
+digit -> '0' | '1' | ... | '9'
+digits -> digit+
+frac -> '.' digits
+optFrac -> frac?
+optExp -> ('e' ('+' | '-')? digits)?
+number -> digits optFrac optExp | frac optExp
+```
