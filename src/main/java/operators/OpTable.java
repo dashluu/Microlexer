@@ -42,7 +42,7 @@ public class OpTable {
             INSTANCE.opMap.put(".", TokenType.DOT);
             INSTANCE.opMap.put(":", TokenType.COLON);
             INSTANCE.opMap.put("=", TokenType.ASSIGNMENT);
-            INSTANCE.opMap.put("as", TokenType.TYPE_CAST);
+            INSTANCE.opMap.put("as", TokenType.TYPE_CONV);
             INSTANCE.opMap.put("(", TokenType.LPAREN);
             INSTANCE.opMap.put(")", TokenType.RPAREN);
             INSTANCE.opMap.put("{", TokenType.LBRACKETS);
@@ -62,7 +62,7 @@ public class OpTable {
             INSTANCE.infixSet.add(TokenType.ASSIGNMENT);
 
             // Initialize postfix table
-            INSTANCE.postfixSet.add(TokenType.TYPE_CAST);
+            INSTANCE.postfixSet.add(TokenType.TYPE_CONV);
 
             // Initialize precedence table
             INSTANCE.precedMap.put(TokenType.ADD, 10);
