@@ -50,6 +50,12 @@ There are several phases in the compilation process:
       grammar. The result produced by parser is an abstract syntax tree, or AST.
     * **Semantic analysis**: figures out what the code is trying to do. Some things to do in this phase are
       type checking and type conversion.
+* **Code generation**:
+    * Uses AST to generate IR(intermediate representation) code.
+    * Several ways, or possibilities, to process IR code:
+        * Build an interpreter to execute each instruction.
+        * Map IR code to LLVM IR and let LLVM handle the backend.
+        * Map IR code to other target languages.
 
 ## Lexer
 
